@@ -12,32 +12,52 @@ void yyerror(char *);
 
 [{] {
 	return ABRECHAVE
-	}
+	;}
 
 [}] {
 	return FECHACHAVE
-	}
+	;}
 [ ] {
 	return SPACE
-	}
+	;}
+[\[] {
+	return ABRECOLCHETE
+	;}
+[\]] {
+	return FECHACOLCHETE
+	;}
+[\"] {
+	return ASPASDUPLA
+	;}
+[(] {
+	return ABREPAR
+	;}
+
+[)] {
+	return FECHAPAR
+	;}
+[,] {
+	return VIRGULA
+	;}
+[\.] {
+	return PONTO
+	;}
 [A-Za-z]+ {
 	return LETRA
-	}
-[0-9]+ {
-	return INT
-	}
-([0-9]+[\.][0-9]+) {
-	return FLOAT
-	}
-[{][ ]?([a-Z0-9]+[ ][;][0-9])*[}] {
-	return OBJECT
-	} 
-[\"]; 
-[ ];
+	;}
+
+[\t\r\n\s)]* {
+	return SPACE
+	;}
+[0-9] {
+	return DIGITO
+	;}
+[-]? {
+	return MENOS
+;}
+
 
 .;
-
-/n;
 
 
 
