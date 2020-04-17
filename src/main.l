@@ -33,10 +33,6 @@ void yyerror(char *);
 	return VIRGULA
 	;}
 
-[.] {
-	return PONTO
-	;}
-
 
 [A-z]+[0-9]*([ ][A-z0-9]+[0-9]*)* {
 	return LETRA
@@ -45,21 +41,16 @@ void yyerror(char *);
 [0-9]+([.]?[0-9]+)? {
 	return DIGITO
 	;}
-[-]? {
-	return MENOS
-;}
-[(true)(false)] {
-	return BOOLEAN
-	;}
+
 [\"] {
 	return ASPASDUPLA
 	;}
 
-[\0] {
+[{]([\"][A-z]+[\"][ ][:][ ][[][0-9]+[,][ ][[][0-9]+[,][ ][0-9]+[,][ ][\[][\]][ ][\]][ ][\]][ ][}]) {
 	return NULO
 		;}
-. ;
 
+. ;
 [\n] ;
 
 
