@@ -29,12 +29,6 @@ void yyerror(char *);
 [\"] {
 	return ASPASDUPLA
 	;}
-[(] {
-	return ABREPAR
-	;}
-[)] {
-	return FECHAPAR
-	;}
 [,] {
 	return VIRGULA
 	;}
@@ -58,9 +52,13 @@ void yyerror(char *);
 [-]? {
 	return MENOS
 ;}
-[(true)(false)(null)] {
+[(true)(false)] {
 	return BOOLEAN
 ;}
+[\0] {
+		NULO
+			}
+}
 
 . ;
 
