@@ -17,24 +17,22 @@ void yyerror(char *);
 [}] {
 	return FECHACHAVE
 	;}
-
-[[] {
+[,] {
+	return VIRGULA
+	;}
+[\[] {
 	return ABRECOLCHETE
 	;}
 
-[]] {
+[\]] {
 	return FECHACOLCHETE
 	;}
 
 [:] {
 	return DOISPONTOS
 	;}
-[,] {
-	return VIRGULA
-	;}
 
-
-[A-z]+[0-9]*([ ][A-z0-9]+[0-9]*)* {
+[a-zA-Z]+[0-9]*([ ]*[a-zA-Z]*[0-9]*)*(\n)* {
 	return LETRA
 	;}
 
@@ -46,9 +44,6 @@ void yyerror(char *);
 	return ASPASDUPLA
 	;}
 
-[{]([\"][A-z]+[\"][ ][:][ ][[][0-9]+[,][ ][[][0-9]+[,][ ][0-9]+[,][ ][\[][\]][ ][\]][ ][\]][ ][}]) {
-	return NULO
-		;}
 
 . ;
 [\n] ;
