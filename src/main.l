@@ -49,14 +49,18 @@ void yyerror(char *);
 [\t\r\n\s ]* {
 	return SPACE
 	;}
-
+[]* {
+	return VAZIO
+	;}
 [0-9]* {
 	return DIGITO
 	;}
 [-]? {
 	return MENOS
 ;}
-
+[(true)(false)(null)] {
+	return BOOLEAN
+;}
 
 . ;
 
