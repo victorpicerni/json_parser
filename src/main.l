@@ -17,8 +17,8 @@ void yyerror(char *);
 [}] {
 	return FECHACHAVE
 	;}
-[ ] {
-	return SPACE
+[:] {
+	return DOISPONTOS
 	;}
 [\[] {
 	return ABRECOLCHETE
@@ -32,7 +32,6 @@ void yyerror(char *);
 [(] {
 	return ABREPAR
 	;}
-
 [)] {
 	return FECHAPAR
 	;}
@@ -42,14 +41,16 @@ void yyerror(char *);
 [\.] {
 	return PONTO
 	;}
-[A-Za-z]+ {
+
+[A-z]* {
 	return LETRA
 	;}
 
-[\t\r\n\s)]* {
+[\t\r\n\s ]* {
 	return SPACE
 	;}
-[0-9] {
+
+[0-9]* {
 	return DIGITO
 	;}
 [-]? {
@@ -57,8 +58,9 @@ void yyerror(char *);
 ;}
 
 
-.;
+. ;
 
+\n ;
 
 
 
